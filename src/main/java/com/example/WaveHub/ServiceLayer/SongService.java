@@ -1,5 +1,8 @@
-package com.example.WaveHub.Song;
+package com.example.WaveHub.ServiceLayer;
 
+import com.example.WaveHub.DataBaseLayer.Entities.SongRepository;
+import com.example.WaveHub.Interfaces.ISongRepoJPA;
+import com.example.WaveHub.Models.Song;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +13,10 @@ import java.util.Optional;
 
 @Service
 public class SongService {
-    private final SongRepository songRepository;
+    private final ISongRepoJPA songRepository;
 
     @Autowired
-    public SongService(SongRepository songRepository) {
+    public SongService(ISongRepoJPA songRepository) {
         this.songRepository = songRepository;
     }
 
@@ -22,11 +25,11 @@ public class SongService {
     }
 
     public void addNewSong(Song song) {
-        Optional<Song> songByName = songRepository
-                .findSongByName(song.getName());
-        if (songByName.isPresent()) {
-            throw new IllegalStateException("name taken");
-        }
+//        Optional<Song> songByName = songRepository
+//                .findSongByName(song.getName());
+//        if (songByName.isPresent()) {
+//            throw new IllegalStateException("name taken");
+//        }
         songRepository.save(song);
     }
 

@@ -1,4 +1,4 @@
-package com.example.WaveHub.Song;
+package com.example.WaveHub.Models;
 
 import jakarta.persistence.*;
 import jdk.jfr.Enabled;

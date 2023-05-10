@@ -1,5 +1,8 @@
-package com.example.WaveHub.Song;
+package com.example.WaveHub.Controller;
 
+import com.example.WaveHub.Interfaces.ISongService;
+import com.example.WaveHub.Models.Song;
+import com.example.WaveHub.ServiceLayer.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +15,7 @@ public class SongController {
     private final SongService songService;
 
     @Autowired
-    public SongController(SongService songService) {
-        this.songService = songService;
-    }
+    public SongController(SongService songService) {this.songService = songService;}
 
     @GetMapping()
     public List<Song> getSongs() {
