@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ISongRepository{
+public interface ISongRepository extends ISongRepoJPA{
 
-    List<Song> findAll();
     List<Song> findSongByName(String name);
+    //Song findById(Long songId);
 }

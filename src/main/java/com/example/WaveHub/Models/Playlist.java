@@ -12,9 +12,38 @@ public class Playlist {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    //private List<Song> songs;
+    private List<Long> songsId;
     @Transient
     private LocalDate dateAdded;
+
+    public Playlist() {
+    }
+
+    public Playlist(Long id, String name, List<Long> songsId, LocalDate dateAdded) {
+        this.id = id;
+        this.name = name;
+        this.songsId = songsId;
+    }
+
+    public Playlist(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Playlist(Long id, String name, List<Long> songsId) {
+
+        this.id = id;
+        this.name = name;
+        this.songsId = songsId;
+    }
+
+    public List<Long> getSongsId() {
+        return songsId;
+    }
+
+    public void setSongsId(List<Long> songsId) {
+        this.songsId = songsId;
+    }
 
     public Long getId() {
         return id;
@@ -30,10 +59,6 @@ public class Playlist {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public LocalDate getDateAdded() {
-        return dateAdded;
     }
 
     public void setDateAdded(LocalDate dateAdded) {

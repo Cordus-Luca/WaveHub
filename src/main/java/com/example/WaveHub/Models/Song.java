@@ -16,9 +16,6 @@ public class Song {
     private String name;
     private String artist;
     private String album;
-    @Transient
-    private LocalDate dateAdded;
-
 
 
     public Song(Long id, String name, String artist, String album, LocalDate dateAdded) {
@@ -54,10 +51,6 @@ public class Song {
 
     public String getName() {
         return name;
-    }
-
-    public LocalDate getDateAdded() {
-        return LocalDate.now();
     }
 
     public void setName(String name) {

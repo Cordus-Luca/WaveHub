@@ -12,6 +12,7 @@ import java.util.List;
 @RequestMapping(path = "/api/v1/playlist")
 public class PlaylistController{
 
+    //  TODO: FINISH CRUD FOR PLAYLIST
     private final IPlaylistService playlistService;
 
     @Autowired
@@ -21,7 +22,17 @@ public class PlaylistController{
     public List<Playlist> getPlaylists() {return playlistService.getPlaylists();}
 
     @PostMapping()
-    public void registerNewPlaylist(@RequestBody Playlist playlist){playlistService.addNewPlaylist(playlist);}
+    public void registerNewPlaylist(@RequestBody Playlist playlist){
+        playlistService.addNewPlaylist(playlist);
+    }
 
+    @DeleteMapping(path = "{playlistId}")
+    public void deletePlaylist(@PathVariable("playlistId") Long playlistId) {playlistService.deletePlaylist(playlistId);}
 
+    @PutMapping(path = "{playlistId}")
+    public void updatePlaylist(
+            @PathVariable("playlistId") Long playlistId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) List<Long> songsId) {
+        playlistService.updatePlaylist(playlistId, name, songsId);}
 }

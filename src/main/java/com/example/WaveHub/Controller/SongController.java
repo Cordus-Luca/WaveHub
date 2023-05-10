@@ -7,20 +7,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/v1/song")
 public class SongController {
 
-    private final SongService songService;
+    private final ISongService songService;
 
     @Autowired
-    public SongController(SongService songService) {this.songService = songService;}
+    public SongController(ISongService songService) {this.songService = songService;}
 
     @GetMapping()
     public List<Song> getSongs() {
         return songService.getSongs();
     }
+
+    @GetMapping(path = "{songId}")
+    public Optional<Song> getSongsById(@PathVariable("songId") Long songId) {return songService.getSongById(songId);}
 
     @PostMapping()
     public void registerNewSong(@RequestBody Song song) {
