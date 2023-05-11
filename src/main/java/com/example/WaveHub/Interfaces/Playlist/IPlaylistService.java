@@ -1,4 +1,4 @@
-package com.example.WaveHub.Interfaces;
+package com.example.WaveHub.Interfaces.Playlist;
 
 import com.example.WaveHub.Models.Playlist;
 

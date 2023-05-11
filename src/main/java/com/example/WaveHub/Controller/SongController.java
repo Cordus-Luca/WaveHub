@@ -1,8 +1,7 @@
 package com.example.WaveHub.Controller;
 
-import com.example.WaveHub.Interfaces.ISongService;
+import com.example.WaveHub.Interfaces.Song.ISongService;
 import com.example.WaveHub.Models.Song;
-import com.example.WaveHub.ServiceLayer.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +23,9 @@ public class SongController {
     }
 
     @GetMapping(path = "{songId}")
-    public Optional<Song> getSongsById(@PathVariable("songId") Long songId) {return songService.getSongById(songId);}
+    public Optional<Song> getSongsById(@PathVariable("songId") Long songId) {
+        return songService.getSongById(songId);
+    }
 
     @PostMapping()
     public void registerNewSong(@RequestBody Song song) {

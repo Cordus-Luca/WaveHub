@@ -1,4 +1,4 @@
-package com.example.WaveHub.Interfaces;
+package com.example.WaveHub.Interfaces.Song;
 
 import com.example.WaveHub.Models.Song;
 
@@ -11,4 +11,5 @@ public interface ISongService {
     void addNewSong(Song song);
     void deleteSong(Long songId);
     void updateSong(Long songId, String name, String artist);
+
 }

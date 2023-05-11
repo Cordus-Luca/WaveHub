@@ -1,4 +1,4 @@
-package com.example.WaveHub.Interfaces;
+package com.example.WaveHub.Interfaces.Song;
 
 import com.example.WaveHub.Models.Song;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ISongRepository extends ISongRepoJPA{
+public interface ISongRepository{
 
-    List<Song> findSongByName(String name);
-    //Song findById(Long songId);
+    List<Song> getAllSongs();
+    Optional<Song> getSongById(Long songId);
 }

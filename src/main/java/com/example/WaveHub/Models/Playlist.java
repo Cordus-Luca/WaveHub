@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table
@@ -15,26 +16,15 @@ public class Playlist {
     private List<Long> songsId;
     @Transient
     private LocalDate dateAdded;
+    @ManyToMany(mappedBy = "inPlaylist")
+    Set<Song> hasSong;
 
     public Playlist() {
-    }
-
-    public Playlist(Long id, String name, List<Long> songsId, LocalDate dateAdded) {
-        this.id = id;
-        this.name = name;
-        this.songsId = songsId;
     }
 
     public Playlist(Long id, String name) {
         this.id = id;
         this.name = name;
-    }
-
-    public Playlist(Long id, String name, List<Long> songsId) {
-
-        this.id = id;
-        this.name = name;
-        this.songsId = songsId;
     }
 
     public List<Long> getSongsId() {

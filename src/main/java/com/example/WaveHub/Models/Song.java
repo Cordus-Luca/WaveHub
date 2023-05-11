@@ -6,6 +6,7 @@ import jdk.jfr.Enabled;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table
@@ -16,6 +17,12 @@ public class Song {
     private String name;
     private String artist;
     private String album;
+    @ManyToMany
+    @JoinTable(
+            name = "song_in_playlist",
+            joinColumns = @JoinColumn(name = "song_id"),
+            inverseJoinColumns = @JoinColumn(name = "playlist_id"))
+    Set<Playlist> inPlaylist;
 
 
     public Song(Long id, String name, String artist, String album, LocalDate dateAdded) {

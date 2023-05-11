@@ -1,8 +1,7 @@
 package com.example.WaveHub.Controller;
 
-import com.example.WaveHub.Interfaces.IPlaylistService;
+import com.example.WaveHub.Interfaces.Playlist.IPlaylistService;
 import com.example.WaveHub.Models.Playlist;
-import com.example.WaveHub.ServiceLayer.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
