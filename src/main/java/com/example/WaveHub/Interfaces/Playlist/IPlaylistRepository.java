@@ -14,7 +14,7 @@ public interface IPlaylistRepository{
     List<Playlist> findPlaylistByName(String name);
     Playlist getPlaylistById(Long playlistId);
     List<Playlist> getAllPlaylists();
-    void createPlaylist(Playlist playlist);
+    void addNewPlaylist(Playlist playlist);
     void updatePlaylist(Playlist playlist);
     void deletePlaylistById(Long playlistId);
 }

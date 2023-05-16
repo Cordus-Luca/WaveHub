@@ -2,10 +2,12 @@ package com.example.WaveHub.Controller;
 
 import com.example.WaveHub.Interfaces.Playlist.IPlaylistService;
 import com.example.WaveHub.Models.Playlist;
+import com.example.WaveHub.Models.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping(path = "/api/v1/playlist")
@@ -32,6 +34,6 @@ public class PlaylistController{
     public void updatePlaylist(
             @PathVariable("playlistId") Long playlistId,
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) List<Long> songsId) {
+            @RequestParam(required = false) Set<Song> songsId) {
         playlistService.updatePlaylist(playlistId, name, songsId);}
 }

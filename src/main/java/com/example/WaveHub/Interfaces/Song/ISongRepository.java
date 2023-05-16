@@ -12,5 +12,9 @@ import java.util.Optional;
 public interface ISongRepository{
 
     List<Song> getAllSongs();
-    Optional<Song> getSongById(Long songId);
+    Song getSongById(Long songId);
+    void addNewSong(Song song);
+    void deleteSong(Long songId);
+    void updateSong(Song song);
+    void addSongToPlaylist(Long songId, Long playlistId);
 }

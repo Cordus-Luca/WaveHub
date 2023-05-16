@@ -23,7 +23,7 @@ public class SongController {
     }
 
     @GetMapping(path = "{songId}")
-    public Optional<Song> getSongsById(@PathVariable("songId") Long songId) {
+    public Song getSongsById(@PathVariable("songId") Long songId) {
         return songService.getSongById(songId);
     }
 
@@ -37,6 +37,7 @@ public class SongController {
         songService.deleteSong(songId);
     }
 
+    // TODO: CHANGE REQUESTPARAM TO REQUESTBODY
     @PutMapping(path = "{songId}")
     public void updateSong(
             @PathVariable("songId") Long songId,

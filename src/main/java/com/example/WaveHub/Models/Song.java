@@ -2,6 +2,7 @@ package com.example.WaveHub.Models;
 
 import jakarta.persistence.*;
 import jdk.jfr.Enabled;
+import lombok.AllArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -17,32 +18,18 @@ public class Song {
     private String name;
     private String artist;
     private String album;
-    @ManyToMany
-    @JoinTable(
-            name = "song_in_playlist",
-            joinColumns = @JoinColumn(name = "song_id"),
-            inverseJoinColumns = @JoinColumn(name = "playlist_id"))
-    Set<Playlist> inPlaylist;
-
-
-    public Song(Long id, String name, String artist, String album, LocalDate dateAdded) {
-        this.id = id;
-        this.name = name;
-        this.artist = artist;
-        this.album = album;
-    }
 
     public Song() {
     }
 
-    public Song(Long id, String name, String artist, String album) {
-        this.id = id;
+    public Song(String name, String artist, String album) {
         this.name = name;
         this.artist = artist;
         this.album = album;
     }
 
-    public Song(String name, String artist, String album) {
+    public Song(Long id, String name, String artist, String album) {
+        this.id = id;
         this.name = name;
         this.artist = artist;
         this.album = album;
