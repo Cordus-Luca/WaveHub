@@ -11,5 +11,6 @@ public interface ISongService {
     void addNewSong(Song song);
     void deleteSong(Long songId);
     void updateSong(Song song);
+    void addSongToPlaylist(Long songId, Long playlistId);
 
 }

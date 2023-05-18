@@ -40,4 +40,8 @@ public class SongService implements ISongService {
         songRepository.updateSong(song);
     }
 
+    @Transactional
+    public void addSongToPlaylist(Long songId, Long playlistId) {
+        songRepository.addSongToPlaylist(songId, playlistId);
+    }
 }

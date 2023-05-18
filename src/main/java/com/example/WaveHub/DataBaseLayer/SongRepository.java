@@ -75,7 +75,7 @@ public class SongRepository implements ISongRepository {
         Optional<PlaylistEntity> optionalPlaylistEntity = playlistRepoJPA.findById(playlistId);
         // Check if playlist exists
         if(optionalSongEntity.isEmpty()) {
-            throw new IllegalStateException("Song with id: " + songId + " does not exist");
+            throw new IllegalStateException("Song with id: " + playlistId + " does not exist");
         }
 
         // Create playlist entity to save for later

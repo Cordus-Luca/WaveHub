@@ -2,18 +2,16 @@ package com.example.WaveHub.Controller;
 
 import com.example.WaveHub.Interfaces.Playlist.IPlaylistService;
 import com.example.WaveHub.Models.Playlist;
-import com.example.WaveHub.Models.Song;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping(path = "/api/v1/playlist")
 public class PlaylistController{
 
-    //  TODO: FINISH CRUD FOR PLAYLIST
     private final IPlaylistService playlistService;
 
     @Autowired
@@ -21,6 +19,11 @@ public class PlaylistController{
 
     @GetMapping()
     public List<Playlist> getPlaylists() {return playlistService.getPlaylists();}
+
+    @GetMapping(path = "{playlistId}")
+    public Playlist getPlaylistById(@PathVariable("playlistId") Long playlistId) {
+        return playlistService.getPlaylistById(playlistId);
+    }
 
     @PostMapping()
     public void registerNewPlaylist(@RequestBody Playlist playlist){
@@ -31,9 +34,7 @@ public class PlaylistController{
     public void deletePlaylist(@PathVariable("playlistId") Long playlistId) {playlistService.deletePlaylist(playlistId);}
 
     @PutMapping(path = "{playlistId}")
-    public void updatePlaylist(
-            @PathVariable("playlistId") Long playlistId,
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) Set<Song> songsId) {
-        playlistService.updatePlaylist(playlistId, name, songsId);}
+    public void updatePlaylist(@PathVariable("playlistId") Long playlistId, @RequestParam(required = false) String name) {
+        playlistService.updatePlaylist(playlistId, name);
+    }
 }

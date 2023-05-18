@@ -10,5 +10,7 @@ public interface IPlaylistService {
     List<Playlist> getPlaylists();
     void addNewPlaylist(Playlist playlist);
     void deletePlaylist(Long playlistId);
-    void updatePlaylist(Long playlistId, String name, Set<Song> songsId);
+    void updatePlaylist(Long playlistId, String name);
+
+    Playlist getPlaylistById(Long playlistId);
 }

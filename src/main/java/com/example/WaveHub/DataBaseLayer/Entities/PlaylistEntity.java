@@ -3,16 +3,18 @@ package com.example.WaveHub.DataBaseLayer.Entities;
 import com.example.WaveHub.Models.Song;
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 
 @Entity
 @Table(name = "playlist")
 @Builder
+@NoArgsConstructor
 public class PlaylistEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -25,6 +27,12 @@ public class PlaylistEntity {
             joinColumns = @JoinColumn(name = "song_id"),
             inverseJoinColumns = @JoinColumn(name = "playlist_id"))
     private Collection<SongEntity> playlistSongs;
+
+    public PlaylistEntity(Long id, String name, Collection<SongEntity> playlistSongs) {
+        this.id = id;
+        this.name = name;
+        this.playlistSongs = playlistSongs;
+    }
 
     public Long getId() {
         return id;

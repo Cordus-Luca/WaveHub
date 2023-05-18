@@ -12,8 +12,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-//  TODO: MAKE EXCEPTION FOR "SONG DOES NOT EXIST"
-
 @AllArgsConstructor
 @Service
 public class PlaylistService implements IPlaylistService {
@@ -33,7 +31,7 @@ public class PlaylistService implements IPlaylistService {
     }
 
     @Transactional
-    public void updatePlaylist(Long playlistId, String name, Set<Song> songsId) {
+    public void updatePlaylist(Long playlistId, String name) {
         Playlist playlist = playlistRepository.getPlaylistById(playlistId);;
         if (name != null &&
             name.length() > 0 &&
@@ -41,7 +39,10 @@ public class PlaylistService implements IPlaylistService {
             playlist.setName(name);
         }
 
-        //playlist.setHasSong(songsId);
+    }
 
+    @Override
+    public Playlist getPlaylistById(Long playlistId) {
+        return playlistRepository.getPlaylistById(playlistId);
     }
 }

@@ -1,8 +1,10 @@
 package com.example.WaveHub.Controller;
 
+import com.example.WaveHub.Controller.DTOs.AddSongToPlaylistDTO;
 import com.example.WaveHub.Interfaces.Song.ISongService;
 import com.example.WaveHub.Models.Song;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,13 +39,9 @@ public class SongController {
         songService.deleteSong(songId);
     }
 
-    // TODO: CHANGE REQUESTPARAM TO REQUESTBODY
-    @PutMapping(path = "{songId}")
-    public void updateSong(
-            @PathVariable("songId") Long songId,
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) String artist) {
-        songService.updateSong(songId, name, artist);
+    @PutMapping()
+    public ResponseEntity<Void> addSongToPlaylist(@RequestBody AddSongToPlaylistDTO addSongToPlaylistDTO) {
+        songService.addSongToPlaylist(addSongToPlaylistDTO.songId(), addSongToPlaylistDTO.playlistId());
+        return ResponseEntity.ok().build();
     }
-
 }
