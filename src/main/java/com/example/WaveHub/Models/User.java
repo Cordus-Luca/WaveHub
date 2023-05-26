@@ -5,6 +5,7 @@ import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +16,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @EqualsAndHashCode
+@NoArgsConstructor
 public class User implements UserDetails {
     private Long id;
     private String username;

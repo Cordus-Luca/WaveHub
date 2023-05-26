@@ -7,6 +7,8 @@ import com.example.WaveHub.Interfaces.Playlist.IPlaylistRepoJPA;
 import com.example.WaveHub.Interfaces.Song.ISongRepoJPA;
 import com.example.WaveHub.Interfaces.Song.ISongRepository;
 import com.example.WaveHub.Models.Song;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -49,7 +51,7 @@ public class SongRepository implements ISongRepository {
     @Override
     public void addNewSong(Song song) {
         SongEntity songEntity = new SongEntityConverter().convertFromModelToEntity(song);
-
+        System.out.println("Test Add song");
         songRepoJPA.save(songEntity);
     }
 
