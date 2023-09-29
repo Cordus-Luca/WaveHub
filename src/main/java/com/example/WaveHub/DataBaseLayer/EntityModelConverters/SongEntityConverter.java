@@ -9,7 +9,10 @@ public class SongEntityConverter {
         return new Song(songEnt.getId(),
                 songEnt.getName(),
                 songEnt.getArtist(),
-                songEnt.getAlbum());
+                songEnt.getAlbum(),
+                songEnt.getImgLink(),
+                songEnt.getMp3Link(),
+                        songEnt.getIsDeleted());
     }
 
     public SongEntity convertFromModelToEntity(Song song) {
@@ -17,6 +20,9 @@ public class SongEntityConverter {
                 .name(song.getName())
                 .artist(song.getArtist())
                 .album(song.getAlbum())
+                .imgLink(song.getImgLink())
+                .mp3Link(song.getMp3Link())
+                .isDeleted(song.getIsDeleted())
                 .build();
     }
 }

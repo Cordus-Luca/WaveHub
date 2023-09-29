@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Collection;
 
 @Entity
 @Table(name = "song")
@@ -26,6 +29,34 @@ public class SongEntity {
 
     @Column(name = "album")
     private String album;
+
+    @Column(name = "imgLink")
+    private String imgLink;
+
+    @Column(name = "mp3Link")
+    private String mp3Link;
+
+    @ManyToMany(mappedBy = "playlistSongs")
+    private Collection<PlaylistEntity> songsInPlaylist;
+
+    @Column(name = "isDeleted")
+    private Integer isDeleted = 0;
+
+    public Integer getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Integer isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+    public Collection<PlaylistEntity> getSongsInPlaylist() {
+        return songsInPlaylist;
+    }
+
+    public void setSongsInPlaylist(Collection<PlaylistEntity> songsInPlaylist) {
+        this.songsInPlaylist = songsInPlaylist;
+    }
 
     public Long getId() {
         return id;
@@ -57,5 +88,21 @@ public class SongEntity {
 
     public void setAlbum(String album) {
         this.album = album;
+    }
+
+    public String getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(String imgLink) {
+        this.imgLink = imgLink;
+    }
+
+    public String getMp3Link() {
+        return mp3Link;
+    }
+
+    public void setMp3Link(String mp3Link) {
+        this.mp3Link = mp3Link;
     }
 }

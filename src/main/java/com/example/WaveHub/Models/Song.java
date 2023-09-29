@@ -3,6 +3,7 @@ package com.example.WaveHub.Models;
 import jakarta.persistence.*;
 import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -11,6 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table
+@Builder
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +20,26 @@ public class Song {
     private String name;
     private String artist;
     private String album;
+    private String imgLink;
+    private String mp3Link;
+    private Integer isDeleted;
+
+    public Song(Long id, String name, String artist, String album, String link) {
+        this.id = id;
+        this.name = name;
+        this.artist = artist;
+        this.album = album;
+        this.imgLink = link;
+    }
+
+    public Song(Long id, String name, String artist, String album, String imgLink, String mp3Link) {
+        this.id = id;
+        this.name = name;
+        this.artist = artist;
+        this.album = album;
+        this.imgLink = imgLink;
+        this.mp3Link = mp3Link;
+    }
 
     public Song() {
     }
@@ -33,6 +55,16 @@ public class Song {
         this.name = name;
         this.artist = artist;
         this.album = album;
+    }
+
+    public Song(Long id, String name, String artist, String album, String imgLink, String mp3Link, Integer isDeleted) {
+        this.id = id;
+        this.name = name;
+        this.artist = artist;
+        this.album = album;
+        this.imgLink = imgLink;
+        this.mp3Link = mp3Link;
+        this.isDeleted = isDeleted;
     }
 
     public Long getId() {
@@ -65,6 +97,30 @@ public class Song {
 
     public void setAlbum(String album) {
         this.album = album;
+    }
+
+    public String getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(String link) {
+        this.imgLink = link;
+    }
+
+    public String getMp3Link() {
+        return mp3Link;
+    }
+
+    public void setMp3Link(String mp3Link) {
+        this.mp3Link = mp3Link;
+    }
+
+    public Integer getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Integer isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
     @Override

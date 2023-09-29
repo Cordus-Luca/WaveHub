@@ -1,23 +1,26 @@
 package com.example.WaveHub.Models;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
+@Data
 @Builder
 @AllArgsConstructor
 @EqualsAndHashCode
 @NoArgsConstructor
+@Entity
+@Table(name = "user")
 public class User implements UserDetails {
+
+    @Id
+    @GeneratedValue()
     private Long id;
     private String username;
     private String password;
@@ -25,6 +28,9 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+//    @OneToMany(mappedBy="user")
+//    private Set<Playlist> playlists;
 
     public Long getId() {
         return id;
@@ -36,7 +42,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
     @Override

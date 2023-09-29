@@ -3,14 +3,15 @@ package com.example.WaveHub.ServiceLayer;
 import com.example.WaveHub.Interfaces.Playlist.IPlaylistRepository;
 import com.example.WaveHub.Interfaces.Playlist.IPlaylistService;
 import com.example.WaveHub.Models.Playlist;
-import com.example.WaveHub.Models.Song;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Service
@@ -21,8 +22,11 @@ public class PlaylistService implements IPlaylistService {
         return playlistRepository.getAllPlaylists();
     }
 
-    public void addNewPlaylist(Playlist playlist) {
-        playlistRepository.addNewPlaylist(playlist);
+    public void addNewPlaylist(Playlist playlist, MultipartFile imgFile) throws IOException {
+        String imgLink = String.valueOf(UUID.randomUUID());
+        playlist.setImgLink(imgLink);
+
+        playlistRepository.addNewPlaylist(playlist, imgFile);
     }
 
     public void deletePlaylist(Long playlistId) {
@@ -31,13 +35,8 @@ public class PlaylistService implements IPlaylistService {
     }
 
     @Transactional
-    public void updatePlaylist(Long playlistId, String name) {
-        Playlist playlist = playlistRepository.getPlaylistById(playlistId);;
-        if (name != null &&
-            name.length() > 0 &&
-            !Objects.equals(playlist.getName(), name)) {
-            playlist.setName(name);
-        }
+    public void updatePlaylist(Playlist playlist) {
+        playlistRepository.updatePlaylist(playlist);
 
     }
 
@@ -45,4 +44,6 @@ public class PlaylistService implements IPlaylistService {
     public Playlist getPlaylistById(Long playlistId) {
         return playlistRepository.getPlaylistById(playlistId);
     }
+
+
 }

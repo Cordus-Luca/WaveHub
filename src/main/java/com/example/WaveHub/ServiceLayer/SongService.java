@@ -7,10 +7,13 @@ import com.example.WaveHub.Models.Song;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class SongService implements ISongService {
@@ -27,8 +30,13 @@ public class SongService implements ISongService {
 
     public Song getSongById(Long songId) {return songRepository.getSongById(songId);}
 
-    public void addNewSong(Song song) {
-        songRepository.addNewSong(song);
+    public void addNewSong(Song song, MultipartFile songFile, MultipartFile imgFile) throws IOException {
+        String songLink = String.valueOf(UUID.randomUUID());
+        String imgLink = String.valueOf(UUID.randomUUID());
+        song.setMp3Link(songLink);
+        song.setImgLink(imgLink);
+
+        songRepository.addNewSong(song, songFile, imgFile);
     }
 
     public void deleteSong(Long songId) {
@@ -44,4 +52,10 @@ public class SongService implements ISongService {
     public void addSongToPlaylist(Long songId, Long playlistId) {
         songRepository.addSongToPlaylist(songId, playlistId);
     }
+
+    @Transactional
+    public List<Song> getPlaylistSongs(Long playlistId) {
+        return songRepository.getPlaylistSongs(playlistId);
+    }
+
 }

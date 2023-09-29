@@ -7,27 +7,31 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 @Entity
 @Table(name = "users")
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
 public class UserEntity {
 
     @Id
     @Column(name = "id")
     private Long id;
 
+    @NotNull
     @Column(name = "username")
     private String username;
 
+    @NotNull
     @Column(name = "password")
     private String password;
 
+    @NotNull
     @Column(name = "email")
     private String email;
 
+    @NotNull
     @Column(name = "isUploader")
     private boolean isUploader;
 
