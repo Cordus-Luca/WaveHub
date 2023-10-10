@@ -1,0 +1,28 @@
+.playing-song {
+    margin: 0;
+    background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
+    font-family: sans-serif;
+    font-weight: 100;
+    display:flex;
+    width:300;
+    flex-basis:100%;
+    border-radius: 100;
+    text-align: center;
+  }
+  .playing-song-item {
+
+    flex: 1;
+    border-radius: 10;
+  }
+  .playing-song-photo {
+    flex-basis:100%;
+  }
+
+
+  
+  .card-title {
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }

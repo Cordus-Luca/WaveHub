@@ -1,0 +1,14 @@
+.navbar{
+    background-color: var(--bs-light);
+    border-bottom: 2px solid var(--s-orange);
+  }
+
+.navbar .header-media-logo{
+    max-width: 13%;
+}
+.navbar .media:hover{
+    opacity: 0.8;
+}
+.text-small{
+    font-size: 85% !important;
+}
