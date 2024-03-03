@@ -11,7 +11,7 @@
 
 💻 - Technology Stack:
 
-Frontend: **React.js** for a dynamic and responsive user interface.
-Backend: **Java Spring Framework** for robust backend development and RESTful API implementation.
-Database: **MySQL** for efficient data storage and management.
-Cloud Services: Utilizes **AWS technology** for secure cloud storage and server hosting.
+- Frontend: **React.js** for a dynamic and responsive user interface.
+- Backend: **Java Spring Framework** for robust backend development and RESTful API implementation.
+- Database: **MySQL** for efficient data storage and management.
+- Cloud Services: Utilizes **AWS technology** for secure cloud storage and server hosting.
