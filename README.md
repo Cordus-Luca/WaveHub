@@ -1,7 +1,8 @@
 ## **WaveHub - Music Sharing Web App**
 
-WaveHub is a web application designed to revolutionize the way users create, store, and share music. With a sleek and intuitive design, WaveHub provides an environment where music enthusiasts can collaborate, discover new tunes, and showcase their creativity.
-Features
+🎶 - WaveHub is a web application designed to revolutionize the way users create, store, and share music. With a sleek and intuitive design, WaveHub provides an environment where music enthusiasts can collaborate, discover new tunes, and showcase their creativity.
+
+🚀 - Features
 
 User Authentication: Secure user authentication system to ensure data privacy and security.
 Create Custom Songs: Users can easily create and compose their own music directly within the application.
@@ -9,7 +10,7 @@ Store Music on Cloud: Utilizing AWS technology, WaveHub allows users to store th
 Share Music: Seamlessly share music with friends, family, and the wider community with just a few clicks.
 User-Friendly Interface: Intuitive design with a focus on user experience, making it easy for users to navigate and interact with the application.
 
-Technology Stack
+💻 - Technology Stack
 
 Frontend: React.js for a dynamic and responsive user interface.
 Backend: Java Spring Framework for robust backend development and RESTful API implementation.
